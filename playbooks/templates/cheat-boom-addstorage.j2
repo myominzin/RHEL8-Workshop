@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "Clearing /dev/vdb"
-wipefs /dev/vdb
+echo "Clearing /dev/sdb"
+wipefs /dev/sdb
 
-echo "Creating new partition table on /dev/vdb"
-printf "o\nn\np\n\n\n\nw\n" | fdisk /dev/vdb
+echo "Creating new partition table on /dev/sdb"
+printf "o\nn\np\n\n\n\nw\n" | fdisk /dev/sdb
 
-echo "Creating physical volume lable on /dev/vdb1"
-pvcreate /dev/vdb1
+echo "Creating physical volume lable on /dev/sdb1"
+pvcreate /dev/sdb1
 
-echo "Extending volume group 'rhel' with /dev/vdb1"
-vgextend rhel /dev/vdb1
+echo "Extending volume group 'rhel' with /dev/sdb1"
+vgextend rhel /dev/sdb1
